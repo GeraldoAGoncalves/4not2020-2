@@ -30,7 +30,7 @@
 
 // Controller é um conjunto de funções associadas às operações sobre dados
 
-const Turma = require('../models/Turma')
+const Filial = require('../models/Filial')
 
 const controller = {}   // Objeto vazio
 
@@ -39,7 +39,7 @@ controller.novo = async (req, res) => {
     // Usa os dados que chegam dentro do body da requisição
     // e os envia o BD para a criação de um novo objeto
     try {
-        await Turma.create(req.body)
+        await Filial.create(req.body)
         // HTTP 201: Created
         res.status(201).end()
     }
@@ -53,11 +53,7 @@ controller.novo = async (req, res) => {
 // Operação RETRIEVE (all), função listar()
 controller.listar = async (req, res) => {
     try {
-        // Traz todos os cursos cadastrados
-        let dados = await Turma.find()
-            .populate('curso', 'nome nivel')  // Somente o atributo nome
-            .populate('professor')      // Todos os atributos
-            .populate('sala_aula', 'nome capacidade') // Somente nome e capacidade
+        let dados = await Filial.find() // Traz todos os cursos cadastrados
         res.send(dados) // Vai com status HTTP 200: OK
     }
     catch(erro) {
@@ -71,7 +67,7 @@ controller.obterUm = async (req, res) => {
     try {
         // Capturando o parâmetro id da URL
         const id = req.params.id
-        let obj = await Turma.findById(id)
+        let obj = await Filial.findById(id)
 
         // O objeto existe e foi encontrado
         if(obj) res.send(obj)       // HTTP 200
@@ -91,7 +87,7 @@ controller.atualizar = async (req, res) => {
         const id = req.body._id
         
         // Busca e substituição do conteúdo do objeto
-        let ret = await Turma.findByIdAndUpdate(id, req.body)
+        let ret = await Filial.findByIdAndUpdate(id, req.body)
 
         // Se encontrou e atualizou, retornamos HTTP 204: No content
         if(ret) res.status(204).end()
@@ -111,7 +107,7 @@ controller.excluir = async (req, res) => {
         const id = req.body._id
         
         // Busca pelo id e exclusão
-        let ret = await Turma.findByIdAndDelete(id)
+        let ret = await Filial.findByIdAndDelete(id)
 
         // Encontrou e excluiu, HTTP 204: No content
         if(ret) res.status(204).end()

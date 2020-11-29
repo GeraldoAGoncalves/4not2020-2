@@ -30,7 +30,7 @@
 
 // Controller é um conjunto de funções associadas às operações sobre dados
 
-const SalaAula = require('../models/SalaAula')
+const C_ped_vend = require('../models/C_ped_vend')
 
 const controller = {}   // Objeto vazio
 
@@ -39,7 +39,7 @@ controller.novo = async (req, res) => {
     // Usa os dados que chegam dentro do body da requisição
     // e os envia o BD para a criação de um novo objeto
     try {
-        await SalaAula.create(req.body)
+        await C_ped_vend.create(req.body)
         // HTTP 201: Created
         res.status(201).end()
     }
@@ -51,9 +51,10 @@ controller.novo = async (req, res) => {
 }
 
 // Operação RETRIEVE (all), função listar()
+// Operação RETRIEVE (all), função listar()
 controller.listar = async (req, res) => {
     try {
-        let dados = await SalaAula.find() // Traz todos os cursos cadastrados
+        let dados = await C_ped_vend.find() // Traz todos os cursos cadastrados
         res.send(dados) // Vai com status HTTP 200: OK
     }
     catch(erro) {
@@ -62,12 +63,13 @@ controller.listar = async (req, res) => {
     }
 }
 
+
 // Operação RETRIEVE (one), função obterUm()
 controller.obterUm = async (req, res) => {
     try {
         // Capturando o parâmetro id da URL
         const id = req.params.id
-        let obj = await SalaAula.findById(id)
+        let obj = await C_ped_vend.findById(id)
 
         // O objeto existe e foi encontrado
         if(obj) res.send(obj)       // HTTP 200
@@ -87,7 +89,7 @@ controller.atualizar = async (req, res) => {
         const id = req.body._id
         
         // Busca e substituição do conteúdo do objeto
-        let ret = await SalaAula.findByIdAndUpdate(id, req.body)
+        let ret = await C_ped_vend.findByIdAndUpdate(id, req.body)
 
         // Se encontrou e atualizou, retornamos HTTP 204: No content
         if(ret) res.status(204).end()
@@ -107,7 +109,7 @@ controller.excluir = async (req, res) => {
         const id = req.body._id
         
         // Busca pelo id e exclusão
-        let ret = await SalaAula.findByIdAndDelete(id)
+        let ret = await C_ped_vend.findByIdAndDelete(id)
 
         // Encontrou e excluiu, HTTP 204: No content
         if(ret) res.status(204).end()

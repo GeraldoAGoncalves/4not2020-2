@@ -14,12 +14,6 @@ db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.bfcxt.gcp.mongodb.net/${dbName}?r
 
 var app = express();
 
-// Habilita a chamada do back-end a partir de um servidor distinto
-// É necessário instalar:
-// npm install cors --save
-const cors = require('cors')
-app.use(cors())
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,19 +23,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-const teste = require('./routes/teste')
-app.use('/teste', teste)
+const cliente = require('./routes/cliente')
+app.use('/cliente', cliente)
 
-const curso = require('./routes/curso')
-app.use('/curso', curso)
+const representante = require('./routes/representante')
+app.use('/representante', representante)
 
-const professor = require('./routes/professor')
-app.use('/professor', professor)
+const filial = require('./routes/filial')
+app.use('/filial', filial)
 
-const sala_aula = require('./routes/sala_aula')
-app.use('/sala-aula', sala_aula)
+const c_ped_vend = require('./routes/c_ped_vend')
+app.use('/c_ped_vend', c_ped_vend)
 
-const turma = require('./routes/turma')
-app.use('/turma', turma)
+const i_ped_vend = require('./routes/i_ped_vend')
+app.use('/i_ped_vend', i_ped_vend)
+
+const tipo_prod = require('./routes/tipo_prod')
+app.use('/tipo_prod', tipo_prod)
+
+const produto = require('./routes/produto')
+app.use('/produto', produto)
+
+const unidade = require('./routes/unidade')
+app.use('/unidade', unidade)
 
 module.exports = app;
