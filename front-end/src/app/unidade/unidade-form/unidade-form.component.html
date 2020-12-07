@@ -1,0 +1,36 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+  
+  <mat-form-field>
+    <mat-label>Cód.Unidade</mat-label>
+    <input matInput type="number" [(ngModel)]="unidade.unidade" name="unidade" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Descrição</mat-label>
+	<input matInput placeholder="Informe a Descrição" [(ngModel)]="unidade.descricao" name="descricao" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Casas Decimais</mat-label>
+	<input matInput placeholder="Informe a qtd de casas decimais" [(ngModel)]="unidade.casas_decimais" name="casas_decimais" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Data</mat-label>
+	<input matInput placeholder="Informe a data" [(ngModel)]="unidade.data" name="data" required>
+  </mat-form-field>
+  
+  <mat-toolbar class="form-buttons">
+    <mat-toolbar-row>
+      <button mat-raised-button type="submit" color="accent">
+        Salvar
+      </button>
+      <button mat-raised-button type="button" (click)="voltar(f)">
+        Voltar
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</form>

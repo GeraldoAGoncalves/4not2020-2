@@ -34,6 +34,13 @@ import { representanteListComponent } from './representante/representante-list/r
 import { representanteFormComponent } from './representante/representante-form/representante-form.component';
 import { produtoListComponent } from './produto/produto-list/produto-list.component';
 import { produtoFormComponent } from './produto/produto-form/produto-form.component';
+import { tipo_prodListComponent } from './tipo_prod/tipo_prod-list/tipo_prod-list.component';
+import { tipo_prodFormComponent } from './tipo_prod/tipo_prod-form/tipo_prod-form.component';
+import { unidadeListComponent } from './unidade/unidade-list/unidade-list.component';
+import { unidadeFormComponent } from './unidade/unidade-form/unidade-form.component';
+import { filialListComponent } from './filial/filial-list/filial-list.component';
+import { filialFormComponent } from './filial/filial-form/filial-form.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +57,13 @@ import { produtoFormComponent } from './produto/produto-form/produto-form.compon
     representanteListComponent,
     representanteFormComponent,
     produtoListComponent,
-    produtoFormComponent
+    produtoFormComponent,
+    tipo_prodListComponent,
+    tipo_prodFormComponent,
+    unidadeListComponent,
+    unidadeFormComponent,
+    filialListComponent,
+    filialFormComponent
   ],
   imports: [
     BrowserModule,
