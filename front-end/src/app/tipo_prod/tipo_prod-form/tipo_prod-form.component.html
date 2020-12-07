@@ -1,0 +1,36 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+  
+  <mat-form-field>
+    <mat-label>Cód. Tipo de Produto</mat-label>
+    <input matInput type="number" [(ngModel)]="tipo_prod.cod_tp_prod" name="cod_tp_prod" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Descrição</mat-label>
+	<input matInput placeholder="Informe a Descrição do Tipo de produto" [(ngModel)]="tipo_prod.descricao" name="descricao" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Unidade</mat-label>
+	<input matInput placeholder="Informe a unidade do Tipo de produto" [(ngModel)]="tipo_prod.unidade" name="unidade" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Data</mat-label>
+	<input matInput placeholder="Informe a data do Tipo de produto" [(ngModel)]="tipo_prod.data" name="data" required>
+  </mat-form-field>
+  
+  <mat-toolbar class="form-buttons">
+    <mat-toolbar-row>
+      <button mat-raised-button type="submit" color="accent">
+        Salvar
+      </button>
+      <button mat-raised-button type="button" (click)="voltar(f)">
+        Voltar
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</form>

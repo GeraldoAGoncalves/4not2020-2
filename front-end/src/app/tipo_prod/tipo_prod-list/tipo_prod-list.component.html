@@ -1,0 +1,62 @@
+<h1>Listagem de tipo_prods</h1>
+
+<mat-toolbar class="new-item">
+  <a mat-raised-button color="accent" [routerLink]="['/tipo_prod/novo']">
+    <mat-icon>add_circle</mat-icon>
+    Novo tipo_prod
+  </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="tipo_prods" class="mat-elevation-z4">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Cód.Tipo Produto Column -->
+  <ng-container matColumnDef="cod_tp_prod">
+    <th mat-header-cell *matHeaderCellDef>Cód.Tipo de Produto</th> 
+    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.cod_tp_prod }} </td>
+  </ng-container>
+
+  <!-- Descricao Column -->
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef>Descrição</th> 
+    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.descricao }} </td>
+  </ng-container>
+
+  <!-- Unidade Column -->
+  <ng-container matColumnDef="unidade">
+    <th mat-header-cell *matHeaderCellDef>Unidade</th> 
+    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.unidade }} </td>
+  </ng-container>  
+
+  <!-- Data Column -->
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef>Data</th> 
+    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.data }} </td>
+  </ng-container> 
+
+  <!-- Editar Column -->
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th> 
+    <td mat-cell class="cell-align-center" *matCellDef="let tipo_prod">
+        <a mat-raised-button color="accent" title="Editar" 
+            [routerLink]="['/tipo_prod', tipo_prod._id]">
+            <mat-icon>edit</mat-icon>
+        </a>
+    </td>
+  </ng-container>
+
+   <!-- Excluir Column -->
+  <ng-container matColumnDef="excluir">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th> 
+    <td mat-cell class="cell-align-center" *matCellDef="let tipo_prod">
+        <button mat-raised-button color="warn" title="Excluir" (click)="excluir(tipo_prod._id)">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+    </td>
+  </ng-container> 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

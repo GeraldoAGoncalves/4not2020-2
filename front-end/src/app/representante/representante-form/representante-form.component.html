@@ -1,0 +1,51 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+  
+  <mat-form-field>
+    <mat-label>Cnpj</mat-label>
+    <input matInput type="number" [(ngModel)]="representante.cnpj" name="cnpj" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Razao</mat-label>
+	<input matInput placeholder="Informe a razao do representante" [(ngModel)]="representante.razao" name="razao" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Fantasia</mat-label>
+	<input matInput placeholder="Informe o fantasia do representante" [(ngModel)]="representante.fantasia" name="fantasia" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Endereço</mat-label>
+	<input matInput placeholder="Informe o endereço do representante" [(ngModel)]="representante.endereco" name="endereco" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Cidade</mat-label>
+	<input matInput placeholder="Informe a cidade do representante" [(ngModel)]="representante.cidade" name="cidade" required>
+  </mat-form-field>
+
+  <mat-form-field>
+	<mat-label>Email</mat-label>
+	<input matInput placeholder="Informe o email do representante" [(ngModel)]="representante.email" name="email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Telefone</mat-label>
+    <input matInput type="number" [(ngModel)]="representante.telefone" name="telefone" required>
+  </mat-form-field>
+  
+  <mat-toolbar class="form-buttons">
+    <mat-toolbar-row>
+      <button mat-raised-button type="submit" color="accent">
+        Salvar
+      </button>
+      <button mat-raised-button type="button" (click)="voltar(f)">
+        Voltar
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</form>
