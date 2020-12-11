@@ -15,15 +15,19 @@
     <mat-form-field>
     <mat-label>Unidade</mat-label>
     <mat-select [(ngModel)]="tipo_prod.unidade" name="unidade" required>
-      <mat-option *ngFor="let sala of UnidCad" [value]="unidade._id">
+      <mat-option *ngFor="let unidade of UnidCad" [value]="unidade._id">
         {{ unidade.descricao }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
-	<mat-label>Data</mat-label>
-	<input matInput placeholder="Informe a data do Tipo de produto" [(ngModel)]="tipo_prod.data" name="data" required>
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="dataInicial" name="data" 
+      [(ngModel)]="tipo_prod.data" placeholder="Informe a data"
+      required>
+    <mat-datepicker-toggle matSuffix [for]="dataInicial"></mat-datepicker-toggle>
+    <mat-datepicker #dataInicial></mat-datepicker>
   </mat-form-field>
   
   <mat-toolbar class="form-buttons">

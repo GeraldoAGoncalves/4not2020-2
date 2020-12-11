@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { produtoService } from '../produto.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table'
 
 @Component({
   selector: 'app-produto-list',
@@ -11,6 +12,7 @@ export class produtoListComponent implements OnInit {
 
   // Nome da entidade no plural
   produtos : any = []
+  unid : any []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
   displayedColumns: string[] = ['cod_prod', 'descricao', 'tipo_produto', 'unidade', 'ativo', 'editar', 'excluir']   

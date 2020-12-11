@@ -12,20 +12,20 @@
 	<input matInput placeholder="Informe a descrição do produto" [(ngModel)]="produto.descricao" name="descricao" required>
   </mat-form-field>
 
-   <mat-form-field>
+    <mat-form-field>
     <mat-label>Tipo de Produto</mat-label>
     <mat-select [(ngModel)]="produto.tipo_produto" name="tipo_produto" required>
-      <mat-option *ngFor="let sala of tipo_prod" [value]="tipo_prod._id">
+      <mat-option *ngFor="let tipo_prod of tipo_prod" [value]="tipo_prod._id ">
         {{ tipo_prod.descricao }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> 
 
    <mat-form-field>
     <mat-label>Unidade</mat-label>
     <mat-select [(ngModel)]="produto.unidade" name="unidade" required>
-      <mat-option *ngFor="let sala of unidCad" [value]="unidade._id">
-        {{ unidade.descricao }}
+      <mat-option *ngFor="let uni of unidCad" [value]="uni._id">
+        {{ uni.descricao }}
       </mat-option>
     </mat-select>
   </mat-form-field>

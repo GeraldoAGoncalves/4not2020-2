@@ -31,6 +31,9 @@ export class produtoFormComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+      
+    this.carregarDados()
+
     // Verifica se existe o parâmetro id na URL (rota)
     if(this.actRoute.snapshot.params['id']) {
       try {
@@ -41,21 +44,23 @@ export class produtoFormComponent implements OnInit {
         this.title = 'Editando produto'
       }
       catch(erro) {
-        console.log(erro)
+        console.log('erro 1 ->', erro)
         this.snackBar.open('ERRO: não foi possível carregar dados para edição.',
           'Que pena!', { duration: 5000 })
       }
     }
-   this.carregarDados()
   }
 
    async carregarDados() {
     try {
       this.tipo_prod = await this.tipo_prodSrv.listar()
       this.unidCad = await this.unidCadSrv.listar()
+      
+      console.log('unidCad -> ', this.unidCad)
+    
     }
     catch(erro) {
-      console.log(erro)
+      console.log('erro2 ->', erro)
       this.snackBar.open(`ERRO: não foi possível carregar todos os dados 
         necessários para a página.`, 'Que pena', { duration: 5000 })
     }

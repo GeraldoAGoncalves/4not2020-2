@@ -26,8 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursoListComponent } from './curso/curso-list/curso-list.component';
 import { CursoFormComponent } from './curso/curso-form/curso-form.component';
 import { FormsModule } from '@angular/forms';
-import { TurmaListComponent } from './turma/turma-list/turma-list.component';
-import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { clienteListComponent } from './cliente/cliente-list/cliente-list.component';
 import { clienteFormComponent } from './cliente/cliente-form/cliente-form.component';
 import { representanteListComponent } from './representante/representante-list/representante-list.component';
@@ -50,8 +48,6 @@ import { filialFormComponent } from './filial/filial-form/filial-form.component'
     MainMenuComponent,
     CursoListComponent,
     CursoFormComponent,
-    TurmaListComponent,
-    TurmaFormComponent,
     clienteListComponent,
     clienteFormComponent,
     representanteListComponent,
