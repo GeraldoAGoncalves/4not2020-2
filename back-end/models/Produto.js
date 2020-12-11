@@ -4,7 +4,7 @@ const esquema = mongoose.Schema({
     cod_prod: {type: String, require: true },
     descricao: { type: String, required: true },
     tipo_produto: { type: mongoose.ObjectId, ref: 'Tipo_prod', required: true },
-    unidade: { type: mongoose.ObjectId, ref: 'Tipo_prod', required: true }, 
+    unidade: { type: mongoose.ObjectId, ref: 'Unidade', required: true }, 
     ativo: { type: String, required: true }
 })
 

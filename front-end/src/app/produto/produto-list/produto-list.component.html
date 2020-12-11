@@ -27,13 +27,13 @@
   <!-- tipo_produto Column -->
   <ng-container matColumnDef="tipo_produto">
     <th mat-header-cell *matHeaderCellDef>Tipo de Produto</th> 
-    <td mat-cell *matCellDef="let produto"> {{ produto.tipo_produto.descricao }} </td>
+    <td mat-cell *matCellDef="let produto"> {{ produto.tipo_produto?.descricao }} </td>
   </ng-container>  
 
   <!-- unidade Column -->
   <ng-container matColumnDef="unidade">
     <th mat-header-cell *matHeaderCellDef>Unidade</th> 
-    <td mat-cell *matCellDef="let produto"> {{ produto.unidade.descricao }} </td>
+    <td mat-cell *matCellDef="let produto"> {{ produto.unidade?.descricao }} </td>
   </ng-container> 
 
   <!-- ativo Column -->

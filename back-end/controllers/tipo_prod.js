@@ -54,6 +54,7 @@ controller.novo = async (req, res) => {
 controller.listar = async (req, res) => {
     try {
         let dados = await Tipo_prod.find() // Traz todos os cursos cadastrados
+        .populate('unidade','descricao') // somente o atributo nome
         res.send(dados) // Vai com status HTTP 200: OK
     }
     catch(erro) {

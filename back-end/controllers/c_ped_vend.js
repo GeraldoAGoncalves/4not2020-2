@@ -63,7 +63,6 @@ controller.listar = async (req, res) => {
     }
 }
 
-
 // Operação RETRIEVE (one), função obterUm()
 controller.obterUm = async (req, res) => {
     try {

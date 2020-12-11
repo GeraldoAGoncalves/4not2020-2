@@ -55,9 +55,8 @@ controller.listar = async (req, res) => {
     try {
         // Traz todos os cursos cadastrados
         let dados = await Produto.find()
-            .populate('curso','nome') // somente o atributo nome
-            .populate('professor')  // todos os atributos
-            .populate('sala_aula','nome capacidade') // Somente nome e capacidade 
+            .populate('tipo_produto','descricao') // somente o atributo nome
+            .populate('unidade','descricao') // Somente nome e capacidade 
         res.send(dados) // Vai com status HTTP 200: OK
     }
     catch(erro) {
