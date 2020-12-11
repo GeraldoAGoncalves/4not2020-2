@@ -18,10 +18,14 @@
   </mat-form-field>
 
   <mat-form-field>
-	<mat-label>Data</mat-label>
-	<input matInput placeholder="Informe a data" [(ngModel)]="unidade.data" name="data" required>
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="dataInicial" name="data" 
+      [(ngModel)]="unidade.data" placeholder="Informe a data"
+      required>
+    <mat-datepicker-toggle matSuffix [for]="dataInicial"></mat-datepicker-toggle>
+    <mat-datepicker #dataInicial></mat-datepicker>
   </mat-form-field>
-  
+
   <mat-toolbar class="form-buttons">
     <mat-toolbar-row>
       <button mat-raised-button type="submit" color="accent">
