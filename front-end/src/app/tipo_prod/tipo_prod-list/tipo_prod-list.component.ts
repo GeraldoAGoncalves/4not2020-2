@@ -23,7 +23,7 @@ export class tipo_prodListComponent implements OnInit {
 
   async ngOnInit() {
     this.tipo_prods = await this.tipo_prodSrv.listar()
-    console.log(this.tipo_prods)
+   // console.log(this.tipo_prods)
   }
 
   async excluir(id: string) {

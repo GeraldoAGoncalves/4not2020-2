@@ -3,7 +3,7 @@
 <mat-toolbar class="new-item">
   <a mat-raised-button color="accent" [routerLink]="['/tipo_prod/novo']">
     <mat-icon>add_circle</mat-icon>
-    Novo tipo_prod
+    Novo Tipo de Produto
   </a>
 </mat-toolbar>
 
@@ -23,11 +23,11 @@
     <th mat-header-cell *matHeaderCellDef>Descrição</th> 
     <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.descricao }} </td>
   </ng-container>
-
+  
   <!-- Unidade Column -->
   <ng-container matColumnDef="unidade">
     <th mat-header-cell *matHeaderCellDef>Unidade</th> 
-    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.unidade }} </td>
+    <td mat-cell *matCellDef="let tipo_prod"> {{ tipo_prod.unidade?.descricao }} </td>
   </ng-container>  
 
   <!-- Data Column -->

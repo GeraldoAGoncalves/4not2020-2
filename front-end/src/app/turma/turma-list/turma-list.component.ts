@@ -23,7 +23,7 @@ export class TurmaListComponent implements OnInit {
 
   async ngOnInit() {
     this.turmas = await this.turmaSrv.listar()
-    console.log(this.turmas)
+  //  console.log(this.turmas)
   }
 
   async excluir(id: string) {

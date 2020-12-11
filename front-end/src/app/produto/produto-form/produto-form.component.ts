@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { produtoService } from '../produto.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { tipo_prodService } from 'src/app/tipo_prod/tipo_prod.service';
+import { unidadeService } from 'src/app/unidade/unidade.service';
 
 @Component({
   selector: 'app-produto-form',
@@ -14,6 +16,8 @@ export class produtoFormComponent implements OnInit {
 
   // Variável para armazenar os dados do registro
   produto : any = {}  // Objeto vazio, nome no SINGULAR
+  tipo_prod : any = []
+  unidCad : any = []
 
   title : string = 'Novo produto'
 
@@ -21,7 +25,9 @@ export class produtoFormComponent implements OnInit {
     private produtoSrv : produtoService,
     private snackBar : MatSnackBar,
     private location : Location,
-    private actRoute : ActivatedRoute
+    private actRoute : ActivatedRoute,
+    private tipo_prodSrv : tipo_prodService,
+    private unidCadSrv : unidadeService
   ) { }
 
   async ngOnInit() {
@@ -39,6 +45,19 @@ export class produtoFormComponent implements OnInit {
         this.snackBar.open('ERRO: não foi possível carregar dados para edição.',
           'Que pena!', { duration: 5000 })
       }
+    }
+   this.carregarDados()
+  }
+
+   async carregarDados() {
+    try {
+      this.tipo_prod = await this.tipo_prodSrv.listar()
+      this.unidCad = await this.unidCadSrv.listar()
+    }
+    catch(erro) {
+      console.log(erro)
+      this.snackBar.open(`ERRO: não foi possível carregar todos os dados 
+        necessários para a página.`, 'Que pena', { duration: 5000 })
     }
   }
 

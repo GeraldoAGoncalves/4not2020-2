@@ -15,7 +15,7 @@ export class unidadeService {
   listar() {
       return this.http.get(this.apiUri).toPromise()
   }
-
+ 
   excluir(id: string) {
       // O método delete() nativo do HTTPClient não suporta a passagem de um body para
       // o back-end
